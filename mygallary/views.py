@@ -5,17 +5,24 @@ from.models import Image
 # Create your views here.
 def gallary(request):
     mygallary = Image.get_images()
-    return render(request, "gallary.html", {"mygallary":mygallary})
+    return render(request, "gallaries/gallary.html", {"mygallary":mygallary})
 
-def search_results(request):
+def search_image(request):
     
-    if 'image' in request.GET and request.GET["image"]:
-        search_term = request.GET.get("image")
-        searched_images = Image.search_by_category(search_term)
-        message = f"{search_term}"
+    if 'category' in request.GET and request.GET["category"]:
+        items = request.GET.get("category")
+        searched_images = Image.search_image(item)
+        message = f"{item}"
 
-        return render(request, 'search.html',{"message":message,"image": searched_articles})
+        return render(request, 'gallaries/search.html',{"message":message,"images": searched_images})
 
     else:
-        message = "You haven't searched for any term"
-        return render(request, 'search.html',{"message":message})
+        message = "You haven't searched for any item"
+        return render(request, 'gallaries/search.html',{"message":message})
+
+def get_image_by_id(request,image_id):
+    try:
+        details = Image.objects.get(id = image_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,"gallaries/details.html", {"details":details})

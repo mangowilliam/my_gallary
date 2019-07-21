@@ -7,7 +7,8 @@ from . import views
 
 urlpatterns = [
     url('^$', views.gallary,name = 'gallary'),
-    url(r'^search/', views.search_results, name='search_results')
+    url(r'^search/', views.search_image, name='search_image'),
+    url(r'^details/(\d+)',views.get_image_by_id,name ='details')
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
@@ -19,10 +20,4 @@ if settings.DEBUG:
     
     
     
-    #self.fufu= Image(name = 'fufu',description = 'juju inside',location = self.kiambu,cetegory = self.food)
-      #  def test_instance(self):
-            #self.assertTrue(isinstance(self.fufu,Image))
-       # def test_save(self):
-        #    self.fufu.save_image()
-         #   images = Image.objects.all()
-          #  self.assertTrue(len(images)>0)
+    

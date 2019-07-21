@@ -40,9 +40,7 @@ class Image(models.Model):
     category = models.ForeignKey(Category)
     
     def __str__(self):
-        return self.name
-    class Meta:
-        ordering = ['name']
+        return self.category
         
     def save_image(self):
         self.save()
@@ -55,7 +53,7 @@ class Image(models.Model):
         return mygallary
     
     @classmethod
-    def search_by_category(cls,search_term):
-        mygallary = cls.objects.filter(category__icontains=search_term)
+    def search_image(cls,items):
+        mygallary = cls.objects.filter(categories__variety__icontains=items)
         return mygallary
         
