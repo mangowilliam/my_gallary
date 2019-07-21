@@ -12,15 +12,16 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 
 import os
-import django_heroku
-import dj_database_url
-from decouple import config,Csv
 
-MODE=config("MODE", default="dev")
+import dj_database_url
+import django_heroku
+from decouple import Csv, config
+
+MODE = config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-if config('MODE')=="dev":
+if config('MODE') == "dev":
        DATABASES = {
        'default': {
            'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -30,15 +31,15 @@ if config('MODE')=="dev":
            'HOST': config('DB_HOST'),
            'PORT': '',
        }
-       
+
    }
-       
-       else:
-       DATABASES = {
-       'default': dj_database_url.config(
-           default=config('DATABASE_URL')
-       )
-   }
+
+else:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=config('DATABASE_URL')
+        )
+    }
 
 
 db_from_env = dj_database_url.config(conn_max_age=500)
