@@ -9,11 +9,22 @@ class LocationTestclass(TestCase):
         
     def test_instance(self):
         self.assertTrue(isinstance(self.kiambu,Location))
+    def tearDown(self):
+        Location.objects.all().delete()
         
     def test_save(self):
         self.kiambu.save_location()
         locations = Location.objects.all()
         self.assertTrue(len(locations)>0)
+    def test_delete(self):
+        self.kiambu.save()
+        self.kiambu.delete()
+        self.assertTrue(len(Location.objects.all())==0)
+    
+    def test_update(self):
+        self.kiambu.save()
+        self.kiambu.variety = 'kajiado'
+        self.assertTrue(self.kiambu.locale == 'kajiado')
 
 class CategoryTestclass(TestCase):
     def setUp(self):
@@ -22,15 +33,24 @@ class CategoryTestclass(TestCase):
     def test_instance(self):
         self.assertTrue(isinstance(self.food,Category))
     
+    def tearDown(self):
+        Category.objects.all().delete()
+    
     def test_save(self):
         self.food.save_category()
         categories = Category.objects.all()
         self.assertTrue(len(categories)>0)
-    def tearDown(self):
-        Category.objects.all().delete()
+    
 
     def test_delete(self):
-        self.food.delete_category()
+        self.food.save()
+        self.food.delete()
+        self.assertTrue(len(Category.objects.all())==0)
+    
+    def test_update(self):
+        self.food.save()
+        self.food.variety = 'fun'
+        self.assertTrue(self.food.variety == 'fun')
     
 class ImageTestclass(TestCase):
     def setUp(self):

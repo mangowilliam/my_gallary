@@ -14,8 +14,11 @@ class Location(models.Model):
     def save_location(self):
         self.save()
         
-    def delete_location(self):
+    def update_location(self):
         self.delete()
+    
+    def delete_category(self):
+        self.update()
         
 class Category(models.Model):
     variety = models.CharField(max_length = 60)
@@ -32,6 +35,9 @@ class Category(models.Model):
     def delete_category(self):
         self.delete()
         
+    def update_category(self):
+        self.update()
+        
 class Image(models.Model):
     image = models.ImageField(upload_to = 'images/')
     name = models.CharField(max_length = 60)
@@ -46,14 +52,11 @@ class Image(models.Model):
         self.save()
         
     @classmethod 
-    def delete_image(self):
+    def delete_image(id):
         self.delete()
+        
     @classmethod     
     def get_images(cls):
-        mygallary = cls.objects.all()
-        return mygallary
-    @classmethod     
-    def update_image(cls):
         mygallary = cls.objects.all()
         return mygallary
     
@@ -62,7 +65,11 @@ class Image(models.Model):
         mygallary = cls.objects.filter(categories__variety__icontains=items)
         return mygallary
     @classmethod
-    def get_image_by_id(cls,image_id):
-        image=Image.objects.get(image_id)
-        return image;
+    def get_image_by_id(cls,id):
+        mygallary=Image.objects.get(id=id)
+        return mygallary
+    
+    def update_image_by_id(id):
+        mygallary = cls.objects.update(id=id)
+        return mygallary
     
