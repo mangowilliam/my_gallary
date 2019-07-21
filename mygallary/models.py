@@ -45,10 +45,15 @@ class Image(models.Model):
     def save_image(self):
         self.save()
         
+    @classmethod 
     def delete_image(self):
-            self.delete()
+        self.delete()
     @classmethod     
     def get_images(cls):
+        mygallary = cls.objects.all()
+        return mygallary
+    @classmethod     
+    def update_image(cls):
         mygallary = cls.objects.all()
         return mygallary
     
@@ -56,4 +61,8 @@ class Image(models.Model):
     def search_image(cls,items):
         mygallary = cls.objects.filter(categories__variety__icontains=items)
         return mygallary
-        
+    @classmethod
+    def get_image_by_id(cls,image_id):
+        image=Image.objects.get(image_id)
+        return image;
+    

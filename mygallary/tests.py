@@ -48,4 +48,23 @@ class ImageTestclass(TestCase):
         Category.objects.all().delete()
         Image.objects.all().delete()
         
+    def test_instance(self):
+        self.food.save()
+        self.assertTrue(isinstance(self.food,Image))
         
+    def test_delete(self):
+        self.food.save()
+        self.food.delete()
+        self.assertTrue(len(Image.objects.all())==0)
+        
+    def test_update(self):
+        self.food.save()
+        self.food.variety = 'fun'
+        self.assertTrue(self.food.variety == 'fun')
+        
+    def test_search_image(self):
+        self.food.save()
+        images = Image.search_image(self.food)
+        self.assertTrue(len(images)>0)
+    
+   
