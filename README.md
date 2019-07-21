@@ -18,12 +18,13 @@ Users would like to:
 * Copy links to images to share with their friends
 
 ## BDD
+
 |Behaviour	                       |          Input	         |Output                              |
 |----------------------------------|-------------------------|------------------------------------|-
-|Admin Authentication	           |On demand	             |Access Admin dashboard              |
-|Display all images	Home page	   |Clickable links          |openans y images in a modal         |
-|Display single images on click	   |On click	             |All details should be viewed        |
-|To search Enter text in search bar|	                     |Users can search by category        |
+|Admin Authentication	             |On demand	               |Access Admin dashboard              |
+|Display all images	Home page	     |Clickable links          |openans y images in a modal         |
+|Display single images on click	   |On click	               |All details should be viewed        |
+|To search Enter text in search bar|	                       |Users can search by category        |
 |To filter by Location	           |Click drop-down on navbar|Users can view images by Location   |
 
 
