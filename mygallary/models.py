@@ -49,7 +49,7 @@ class Image(models.Model):
     category = models.ForeignKey(Category)
 
     def __str__(self):
-        return self.category
+        return self.name
 
     def save_image(self):
         self.save()
