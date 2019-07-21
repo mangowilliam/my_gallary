@@ -2,25 +2,25 @@
 {% block content %}
 <div class="container">
 
-  <div class="row">
-    {% if image%}
-      <h2>Found {{ image|length }} of item {{message}}</h2>
-    {% else %}
-      <h2> Found 0 images for the item, {{message}}</h2>
-    {% endif %}
+    <div class="row">
+        {% if image%}
+        <h2>Found {{ image|length }} of item {{message}}</h2>
+        {% else %}
+        <h2> Found 0 images for the item, {{message}}</h2>
+        {% endif %}
 
-  </div>
+    </div>
 
- 
 
-  {% if images %}
+
+    {% if images %}
     {% for image in images %}
-      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-">
-          <h1>{{image.name}}</h1>
-          <img  src="{{image.image.url}}">
-      </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-">
+        <h1>{{image.name}}</h1>
+        <img src="{{image.image.url}}">
+    </div>
     {% endfor %}
-  {% endif %}
-  </div>
+    {% endif %}
+</div>
 </div>
 {% endblock %}
