@@ -26,6 +26,11 @@ class CategoryTestclass(TestCase):
         self.food.save_category()
         categories = Category.objects.all()
         self.assertTrue(len(categories)>0)
+    def tearDown(self):
+        Category.objects.all().delete()
+
+    def test_delete(self):
+        self.food.delete_category()
     
 class ImageTestclass(TestCase):
     def setUp(self):

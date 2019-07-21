@@ -13,7 +13,10 @@ class Location(models.Model):
     
     def save_location(self):
         self.save()
-    
+        
+    def delete_location(self):
+        self.delete()
+        
 class Category(models.Model):
     variety = models.CharField(max_length = 60)
     
@@ -25,6 +28,9 @@ class Category(models.Model):
     
     def save_category(self):
         self.save()
+        
+    def delete_category(self):
+        self.delete()
         
 class Image(models.Model):
     image = models.ImageField(upload_to = 'images/')
@@ -40,3 +46,7 @@ class Image(models.Model):
         
     def save_image(self):
         self.save()
+        
+    def delete_image(self):
+            self.delete()
+    
