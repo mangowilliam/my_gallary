@@ -14,25 +14,33 @@
         
       <h2><a class="navbar-brand" href="{% url 'gallary' %}">MY GALLARY</a></h2>
     </div>
-    <div>
+    <div class="col-sm-4 col-md-4 navbar-right">
 
-            
-                  <h2 class=class="nav navbar-nav navbar-righ>
-                        <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CATEGORIES
-                            <span class="caret"></span>
-                        </a>
-                        
-                        <ul class="dropdown-menu" >
-                            <li><a href="#">Travel</a></li>
-                            <li><a href="#">food</a></li>
-                            <li><a href="#">fun</a></li>
-                            <li><a href="#">events</a></li>
-                            <li><a href="#">animals<a></li>
-                        </ul>
-                    </h2>
-                    </div>
+      <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search images" name="images">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <h4 style="float: right"><li class="nav-item dropdown" style="list-style: none;" >
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        CATEGORY
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#">FOOD</a><br>
+        <a class="dropdown-item" href="#">TRAVEL</a><br>
+        <a class="dropdown-item" href="#">FUN</a>
+      </div>
+    </li></h4>
                    
   </div>
 </nav>
 </body>
 </html>
+
