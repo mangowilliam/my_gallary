@@ -2,9 +2,12 @@ body{
   background-color: #ffdd71;
   color:#ffdd71;
 }
-img{
-width: 300px;
-height: 300px;
+}
+h1{
+  color: black;
+}
+h2{
+  color: black;
 }
 @media (min-width: 768px) {
   .container {

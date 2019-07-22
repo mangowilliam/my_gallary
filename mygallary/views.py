@@ -11,10 +11,11 @@ def gallary(request):
 
 def search_image(request):
 
-    if 'category' in request.GET and request.GET["category"]:
-        items = request.GET.get("category")
-        searched_images = Image.search_image(item)
-        message = f"{item}"
+    if 'images' in request.GET and request.GET["images"]:
+        items = request.GET.get("images")
+        searched_images = Image.search_image(items)
+        print(searched_images)
+        message = f"{items}"
 
         return render(request, 'gallaries/search.html', {"message": message, "images": searched_images})
 

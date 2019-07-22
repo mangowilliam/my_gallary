@@ -65,7 +65,7 @@ class Image(models.Model):
 
     @classmethod
     def search_image(cls, items):
-        mygallary = cls.objects.filter(categories__variety__icontains=items)
+        mygallary = cls.objects.filter(category__variety__icontains=items)
         return mygallary
 
     @classmethod
