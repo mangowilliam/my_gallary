@@ -1,54 +1,50 @@
 {%extends 'gallaries/base.html'%} {% block content %}
 {{ block.super }}
 <div class="container">
-    <div class="row">
-        {% for mygallary_item in mygallary %}
 
-        <div class="col-md-4">
-            <div class="card card-cascade wider">
-                <button type="button" class="btn-primary-outline " data-toggle="modal"
-                    data-target="#exampleModal{{ mygallary_item.id }}">
-                    <img src="{{ mygallary_item.image.url }}" height="200px" alt="Image" />
-                </button>
-                {% for mygallary_item in mygallary %}
-                <div class="modal fade" id="exampleModal{{ mygallary_item.id }}" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h2 class="modal-title" id="exampleModalLabel">
-                                    name: {{ mygallary_item.name }}
-                                </h2>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <img src="{{ mygallary_item.image.url }}" height="400px" alt="Image" />
-                                <h2>description: {{ mygallary_item.description }}</h2>
-                                <h2>category: {{ mygallary_item.category }}</h2>
-                                <h2>Location: {{ mygallary_item.location }}</h2>
-                            </div>
-                            <div class="modal-footer">
-                                <p></p>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                    Close
-                                </button>
-                                <button type="button" class="btn btn-primary">
-                                    Save changes
-                                </button>
-                            </div>
+    {% for mygallary_item in mygallary %}
+
+    <div class="col-md-4">
+        <div class="card card-cascade wider">
+            <button type="button" class="btn-primary-outline pt-3" data-toggle="modal"
+                data-target="#exampleModal{{ mygallary_item.id }}">
+                <img src="{{ mygallary_item.image.url }}" height="200px" width="300px" alt="Image" />
+                <h2>{{ mygallary_item.name }}</h2>
+            </button><br>
+            {% for mygallary_item in mygallary %}
+            <div class="modal fade" id="exampleModal{{ mygallary_item.id }}" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="exampleModalLabel">
+                                name: {{ mygallary_item.name }}
+                            </h2>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="{{ mygallary_item.image.url }}" height="300px" alt="Image" />
+                            <h2>description: {{ mygallary_item.description }}</h2>
+                            <h2>category: {{ mygallary_item.category }}</h2>
+                            <h2>Location: {{ mygallary_item.location }}</h2>
+                        </div>
+                        <div class="modal-footer">
+                            <p></p>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="button" class="btn btn-primary">
+                                Save changes
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-            {% endfor %} {% empty %}
-            <div class="row">
-                <h2 class="text-center">There No images</h2>
-            </div>
+            {% endfor %} {
         </div>
-        {% endfor %}
     </div>
-</div>
+    {% endfor %}
 </div>
 {% endblock %}
