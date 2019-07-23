@@ -3,7 +3,7 @@
 <div class="container">
 
     <div> {% if images%}
-        <h2>Found {{ images|length }} of item, {{message}}</h2>
+        <h2>Found {{ images|length }} images for the item, {{message}}</h2>
         {% else %}
         <h2> Found 0 images for the item, {{message}}</h2>
         {% endif %}
@@ -36,7 +36,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <img src="{{ image.image.url }}" height="300px" alt="Image" />
+                            <img src="{{ image.image.url }}" height="300px" width="300px" alt="Image" />
                             <h2>description: {{ image.description }}</h2>
                             <h2>category: {{ image.category }}</h2>
                             <h2>Location: {{ image.location }}</h2>
