@@ -72,7 +72,10 @@ class Image(models.Model):
     def get_image_by_id(cls, id):
         mygallary = Image.objects.get(id=id)
         return mygallary
+    
+    @classmethod
+    def search_location(cls, location):
+        mygallary = cls.objects.filter(location__locale__icontains=location)
+        return images
 
-    def update_image_by_id(id):
-        mygallary = cls.objects.update(id=id)
-        return mygallary
+

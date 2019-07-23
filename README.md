@@ -21,11 +21,9 @@ Users would like to:
 
 |Behaviour	            |          Input	  |Output                       |
 |-----------------------|-------------------|-----------------------------|
-|Admin Authentication	  |On demand	        |Access Admin dashboard       |
-|Display all images     |Clickable links    |openans y images in a modal  |
-|Display single image   |On click	          |All details should be viewed |
+|Display all images     |Clickable links    |openans  images in a modal   |
 |To search Enter        |category           |Users can search by category |
-|To filter by Location	|Click nav drop-down|Users view images by Location|
+|To filter by Location	|Click nav LOCATION |Users view images by Location|
 
 
 ## SetUp / Installation Requirements

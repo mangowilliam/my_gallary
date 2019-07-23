@@ -30,3 +30,12 @@ def get_image_by_id(request, image_id):
     except DoesNotExist:
         raise Http404()
     return render(request, "gallaries/details.html", {"details": details})
+
+def search_location(request):
+    if 'images' in request.GET and request.GET["images"]:
+        location = request.GET.get("images")
+        searched_images = Image.search_location(location)
+        print(searched_images)
+        message = f"{location}"
+
+        return render(request, 'gallaries/details.html', {"message": message, "images": searched_images})

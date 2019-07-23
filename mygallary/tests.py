@@ -65,7 +65,7 @@ class ImageTestclass(TestCase):
         self.food.save_category()
 
         self.new_image = Image(
-            name='fufu', description='juju inside', location=self.kiambu, cetegory=self.food)
+        name='machakura', description='kiabuu special', location=self.kiambu, cetegory=self.food)
         self.new_image.save()
 
     def tearDown(self):
